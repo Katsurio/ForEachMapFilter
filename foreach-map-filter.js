@@ -147,15 +147,19 @@ function extractKey(arr, key){
 // console.log("extractKey: " + extractKey([{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}], 'name'));
 
 /*
-Write a function called extractFullName which accepts an array of objects and returns a new array with the value of the key with a name of "first" and the value of a key with the name of  "last" in each object, concatenated together with a space. 
+Write a function called extractFullName which accepts an array of objects and returns a new array with the value of the key with a name of "first" 
+and the value of a key with the name of  "last" in each object, concatenated together with a space. 
 
 Examples:
     extractFullName([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia"}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele"}]) // ['Elie Schoppik', 'Tim Garcia', 'Matt Lane', 'Colt Steele']
 */
 
 function extractFullName(arr){
-    
+    return arr.map((obj) => {
+        return `${obj.first} ${obj.last}`;
+    })
 }
+// console.log(extractFullName([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia"}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele"}]));
 
 /*
 Write a function called filterByValue which accepts an array of objects and a key and returns a new array with all the objects that contain that key.
@@ -164,8 +168,12 @@ Examples:
     filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner') // [{first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Colt', last:"Steele", isCatOwner: true}]
 */
 
-function filterByValue(arr, key) {}
-
+function filterByValue(arr, key) {
+    return arr.filter((val) => {
+        return val[key];
+    })
+}
+console.log(filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner'));
 /*
 Write a function called find which accepts an array and a value and returns the first element in the array that has the same value as the second parameter or undefined if the value is not found in the array.
 
