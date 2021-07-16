@@ -128,8 +128,11 @@ Examples:
 */
 
 function valTimesIndex(arr){
-    
+    return arr.map((val, idx) => {
+        return val * idx;
+    })
 }
+// console.log(valTimesIndex([1,-2,-3]));
 
 /*
 Write a function called extractKey which accepts an array of objects and some key and returns a new array with the value of that key in each object.
@@ -173,7 +176,7 @@ function filterByValue(arr, key) {
         return val[key];
     })
 }
-console.log(filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner'));
+// console.log(filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner'));
 /*
 Write a function called find which accepts an array and a value and returns the first element in the array that has the same value as the second parameter or undefined if the value is not found in the array.
 
@@ -182,7 +185,16 @@ Examples:
     find([1,2,3,4,5], 10) // undefined
 */
 
-function find(arr, searchValue) {}
+function find(arr, searchValue) {
+    let output = '';
+    return arr.filter((val) => {
+        return val === searchValue;
+    })[0]
+}
+
+// console.log(find([1,2,3,4,5], 10));
+// console.log(find([1,2,3,4,5], 3));
+
 
 /*
 Write a function called findInObj which accepts an array of objects, a key, and some value to search for and returns the first found value in the array.
@@ -191,7 +203,13 @@ Examples:
     findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
 */
 
-function findInObj(arr, key, searchValue) {}
+function findInObj(arr, key, searchValue) {
+    return arr.filter((val) => {
+        return val[key] === searchValue
+    })[0]
+}
+// console.log(findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true));
+
 
 /*
 Write a function called removeVowels which accepts a string and returns a new string with all of the vowels (both uppercased and lowercased) removed. Every character in the new string should be lowercased.
@@ -202,7 +220,17 @@ Examples:
     removeVowels('ZZZZZZ') // ('zzzzzz')
 */
 
-function removeVowels(str) {}
+function removeVowels(str) {
+    const vowels = 'aeiou';
+    return str
+        .toLowerCase()
+        .split('')
+        .filter((char) => {
+            return vowels.indexOf(char) === -1;
+        })
+        .join("");
+}
+// console.log(removeVowels('Elie'));
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -212,4 +240,12 @@ Examples:
     doubleOddNumbers([4,4,4,4,4]) // []
 */
 
-function doubleOddNumbers(arr) {}
+function doubleOddNumbers(arr) {
+    return arr.filter((num) => {
+        return num % 2 !== 0;
+    }).map((num) => {
+        return num * 2;
+    })
+}
+// console.log(doubleOddNumbers([1,2,3,4,5]));
+// console.log(doubleOddNumbers([4,4,4,4,4]));
