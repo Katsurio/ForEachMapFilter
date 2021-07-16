@@ -111,7 +111,13 @@ Examples:
     doubleValuesWithMap([1,-2,-3]) // [2,-4,-6]
 */
 
-function doubleValuesWithMap(arr) {}
+function doubleValuesWithMap(arr) {
+    return arr.map((val) => {
+        return val * 2;
+    })
+}
+
+// console.log("doubleValuesWithmap: " + doubleValuesWithMap([1,-2,-3]))
 
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
@@ -133,8 +139,12 @@ Examples:
 */
 
 function extractKey(arr, key){
-    
+    return arr.map((val) => {
+        return val[key];
+    })
 }
+
+// console.log("extractKey: " + extractKey([{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}], 'name'));
 
 /*
 Write a function called extractFullName which accepts an array of objects and returns a new array with the value of the key with a name of "first" and the value of a key with the name of  "last" in each object, concatenated together with a space. 
