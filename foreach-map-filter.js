@@ -63,12 +63,13 @@ Examples:
 const arrOfObjects = [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}];
 
 function addKeyAndValue(arr,key,value){
-    return arr.map((person, key, value) => {
-        return person[key] = value;
+    arr.forEach((personObj) => {
+        personObj[key] = value;
     })
+    return arr;
 }
 
-let newArrOfObjs = addKeyAndValue(arrOfObjects, 'title', 'instructor');
+// let newArrOfObjs = addKeyAndValue(arrOfObjects, 'title', 'instructor');
 // console.log(newArrOfObjs);
 
 /*
